@@ -1,15 +1,21 @@
 package OOP.Interface;
 
-public class CreditCardPayment implements PaymentMethod{
+public class CreditCardPayment implements PaymentMethod, Refundable{
     @Override
-    public void pay(double amount) {
+    public boolean pay(double amount) {
 
-        if (amount >= 10000){
-            System.out.println("Сумма оплаты превышает 10000");
-            System.out.println(getName());
+        if (amount <= 10000){
+            return true;
         }else{
-            System.out.println(getName());
+            System.out.println("Сумма оплаты превышает 10000");
+            refund(amount);
+            return false;
         }
+    }
+
+    @Override
+    public void refund(double amount) {
+        System.out.println("Возвращение суммы: " + amount);
     }
 
     @Override

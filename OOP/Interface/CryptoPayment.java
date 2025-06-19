@@ -2,11 +2,13 @@ package OOP.Interface;
 
 public class CryptoPayment implements PaymentMethod {
     @Override
-    public void pay(double amount) {
+    public boolean pay(double amount) {
         if (amount <= 100){
             System.out.println("Сумма меньше 100, оплата прервана");
+            return false;
+
         }else{
-            System.out.println(getName());
+            return true;
         }
     }
 
