@@ -11,9 +11,9 @@ interface ILogger {
 }
 
 public class Logger implements ILogger {
-    Calendar newDate = new GregorianCalendar(); 
     @Override
     public void log(String message) {
+        Calendar newDate = new GregorianCalendar(); 
         System.out.println("[LOG " + newDate.get(Calendar.HOUR) + ":" + newDate.get(Calendar.MINUTE) + ":" + newDate.get(Calendar.SECOND) +"]"+ " " + message);
     }
 
